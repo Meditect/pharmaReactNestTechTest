@@ -12,7 +12,7 @@ Mini application de gestion de médicaments pour une pharmacie.
 ---
 
 ## ✅ Règles
-- Forkez ce repository
+- faites une branche
 - Travaillez avec **plusieurs commits**
 - Respectez les consignes
 - Code clair > fonctionnalités avancées
