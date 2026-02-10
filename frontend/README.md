@@ -21,6 +21,29 @@ Elle démontre :
 
 ---
 
+## 🔄 Gestion des commits (important)
+
+Le développement doit être effectué avec des commits réguliers et lisibles.
+
+### ✅ Règles attendues
+
+- Faire des commits fréquents
+- Chaque commit doit représenter une étape fonctionnelle
+- Les messages doivent être clairs et explicites
+- Le premier commit doit être un commit d’initialisation du projet
+
+## 🧱 Exemple de séquence de commits attendue
+```bash
+git commit -m "init: setup react project with vite"
+git commit -m "feat: add medicines api layer"
+git commit -m "feat: display medicines list"
+git commit -m "feat: add create medicine form"
+git commit -m "feat: add update medicine"
+git commit -m "feat: add delete medicine"
+```
+
+---
+
 ## 🧱 Stack technique
 
 - **React 19**
