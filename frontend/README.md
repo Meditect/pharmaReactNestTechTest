@@ -1,73 +1,125 @@
-# React + TypeScript + Vite
+# 💊 Frontend – Pharmacy Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🎯 Objectif
 
-Currently, two official plugins are available:
+Cette application frontend React permet de gérer des **médicaments** via une API REST (NestJS).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Elle démontre :
+- la maîtrise de **React (hooks)**
+- la gestion des données avec **TanStack Query**
+- une bonne structuration du code
+- l’interaction avec une API backend
 
-## React Compiler
+> 🎨 Le design n’est pas évalué.  
+> ✅ La lisibilité, la simplicité et le fonctionnement sont prioritaires.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ⏱ Temps recommandé
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+⏳ **1 heure maximum**
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🧱 Stack technique
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **React 19**
+- **Vite**
+- **TypeScript**
+- **@tanstack/react-query**
+- Fetch API
+
+---
+
+## ⚙️ Prérequis
+
+- Node.js ≥ 18
+- Backend NestJS disponible sur `http://localhost:8080`
+
+---
+
+## 📂 Structure du projet
+
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+src/
+├── api/              # Appels API
+│   └── medicines.ts
+├── components/       # Composants UI
+│   └── MedicineForm.tsx
+├── pages/            # Pages
+│   └── MedicinesPage.tsx
+├── types/            # Types TypeScript
+│   └── medicine.ts
+├── App.tsx
+├── main.tsx
 ```
+--- 
+
+## ✅ Fonctionnalités
+### ✔️ Liste des médicaments
+
+- Appel `GET /medicines`
+- Affichage du chargement
+- Gestion d’erreur basique
+- Affichage de la liste
+
+---
+
+### ✔️ Création d’un médicament
+
+- Formulaire avec :
+  - nom
+  - prix (> 0)
+  - stock (≥ 0)
+
+- Validation minimale côté frontend
+- Appel `POST /medicines`
+- Rafraîchissement automatique de la liste
+
+---
+
+### ✔️ Modification d’un médicament
+
+- Édition via formulaire (inline ou dédié)
+- Appel `PUT /medicines/:id`
+- Rafraîchissement de la liste après succès
+
+---
+
+### ✔️ Suppression d’un médicament
+
+- Bouton de suppression
+- Confirmation simple
+- Appel `DELETE /medicines/:id`
+- Mise à jour immédiate de la liste
+
+--- 
+
+## ▶️ Installation et lancement
+```bash
+npm install
+npm run dev
+```
+Application accessible sur :
+`http://localhost:5173`
+
+---
+
+## ⭐ Améliorations possibles (optionnelles)
+
+- Mise à jour optimiste
+- Pagination
+- Recherche / filtre
+- Gestion globale des erreurs
+- Tests frontend
+- Design system minimal
+
+--- 
+
+## ✅ Critères d’évaluation
+
+- Fonctionnalités complètes (CRUD)
+- Utilisation correcte des hooks
+- Interaction API propre
+- Code clair et maintenable
+- Bonne séparation des responsabilités
